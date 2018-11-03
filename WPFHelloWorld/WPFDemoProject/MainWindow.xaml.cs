@@ -24,5 +24,11 @@ namespace WPFDemoProject
         {
             InitializeComponent();
         }
+
+        private void btnClickMe_Click(object sender, RoutedEventArgs e)
+        {
+            string firstname = tbxFirstName.Text.Trim();
+            MessageBox.Show($"Your first name is {firstname}");
+        }
     }
 }
