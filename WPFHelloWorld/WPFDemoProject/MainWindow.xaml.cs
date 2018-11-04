@@ -20,15 +20,39 @@ namespace WPFDemoProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Student> students = new List<Student>();
+        /// </summary>
+
         public MainWindow()
         {
             InitializeComponent();
+
+            students.Add(new Student { FirstName = "Nath", LastName = "Dortie" });
+            students.Add(new Student { FirstName = "James", LastName = "Connolly" });
+            students.Add(new Student { FirstName = "Joe", LastName = "Smith" });
+            students.Add(new Student { FirstName = "Jane", LastName = "Jones" });
+
+            cboStudentNames.ItemsSource = students;
         }
 
         private void btnClickMe_Click(object sender, RoutedEventArgs e)
         {
             string firstname = tbxFirstName.Text.Trim();
             MessageBox.Show($"Your first name is {firstname}");
+        }
+
+        public class Student
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+
+            public string FullName
+            {   
+                get
+                {
+                    return $"{FirstName} { LastName }";
+                }
+            }
         }
     }
 }
